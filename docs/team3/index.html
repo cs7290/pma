@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>mbostock particles</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+  </head>
+  <body>
+    <div id="observablehq-canvas-18db4c30"></div>
+    <p>Credit: <a href="https://observablehq.com/@mbostock/connected-particles-iii">Connected Particles III by Mike Bostock</a></p>
+  <script type="module">
+    import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+    import define from "https://api.observablehq.com/@mbostock/connected-particles-iii.js?v=4";
+    new Runtime().module(define, name => {
+      if (name === "canvas") return new Inspector(document.querySelector("#observablehq-canvas-18db4c30"));
+    });
+  </script>
+  </body>
+</html>
+
