@@ -1,16 +1,14 @@
 # pma
 
-* Due: 16 Oct 2023
-
-## Reading
-
-To prep for the next class, 
-read the two items in the "7-Geo" section of [schedule.md](https://github.com/cs7290/fall-2023/blob/main/schedule.md).
+* Due: 1 Nov 2023
+* Note: I've created a notebook that you may use if you like
+  * https://observablehq.com/@class/pma-access
+  * It has some interactive elements, a brush
+  * It consolidates a lot of the processing
 
 ## Assignment
 
-* Finish embedding the notebooks that we started in class on Thursday.
-* I've made the deadline on Monday in time to decide on Tuesday if we'll have our PMA stakeholder visit on Thursday.
+* Create your final version of the PMA web app
 * Only 1 submission per team is necessary.
 * Put your embedded page in the corresponding sub directory of "docs" for your team
 * Let me know if you need help -- I'll be available this weekend with a little advanced warning. Look for me on Teams
