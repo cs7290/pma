@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS7250 - PMA HW06 - Team 3</title>
+    <style>
+      h1[id]:target, h2[id]:target, h3[id]:target {
+        padding-top: 60px;
+        margin-top: -60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="p-5 bg-secondary">
+      <h1 class="display-5 text-light fw-bold">Portland Museum of Art Energy Usage</h1>
+    </div>
+    <nav class="navbar navbar-expand-md navbar-secondary sticky-top bg-secondary">
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link text-light fw-bold" href="#data-availability">Data Availability</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light fw-bold" href="#data-distributions">Data Distributions</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light fw-bold" href="#seasonality">Seasonality</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light fw-bold" href="#performance-vs-targets">Performance vs Targets</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <h1 id="data-availability">1. Data Availability</h1>
+      <div>
+        <h2 id="incomplete-cost-information">Incomplete Cost Information</h2>
+        <i>
+          NOTE:
+          <ul>
+            <li>There is a notable scarcity of recent cost information.</li>
+            <li>There is no cost information for Fuel Oil.</li>
+          </ul>
+        </i>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-missingCost-3500b59f"></div>
+        </div>
+      </div>
+      <h1 id="data-distributions">2. Data Distributions</h1>
+      <div>
+        <h2 id="total-usage">Total Usage</h2>
+        <i>
+          NOTE: The Charles Shipman Payson Building dominates.
+        </i>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-kwhPareto-353e78d3"></div>
+        </div>
+      </div>
+      <div>
+        <h2 id="usage-per-type">Usage per Type</h2>
+        <i>
+          NOTE:
+          <ul>
+            <li>We immediately notice there are many distinct sub-populations.</li>
+            <li>Charles Shipman Payson Building (or CSPB) is clearly in a league of its own.</li>
+            <li>Heavy tails and dramatic outliers indicate sub-populations within CSPB.</li>
+          </ul>
+        </i>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-energyBoxes2-3b2ab866"></div>
+        </div>
+      </div>
+
+      <h1 id="seasonality">3. Seasonality</h1>
+      <h2 id="cost-trends">Cost Trends</h2>
+      <div>
+        <p>Next, by fitting trend lines to a roughly six-month window (180 days), we intend to illustrate how the different utilities oscillate periodically, with annual frequency.</p>
+        <i>
+          NOTE:
+          <ul>
+            <li>We aggregate by date ("Delivery Date" where available; Otherwise "Start Date").</li>
+            <li>We animate this visualization manually, by sliding a resizable time window.</li>
+          </ul>
+        </i>
+        <i>
+          TODO:
+          <ul>
+            <li>Figure out how to automate playback.</li>
+            <li>Investigate ARIMA model? (possibly overkill)</li>
+            <li>Extract seasonality and separate it from the underlying trend? (e.g. ARIMA)</li>
+            <li>Try a lag difference plot? (not easy with <code>Plot.window</code> and irregular sample rate)</li>
+          </ul>
+        </i>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-scrubber-20aee92a"></div>
+          <div style="" id="observablehq-costTrend-748a2a8d"></div>
+        </div>
+      </div>
+
+      <h2 id="aggregating-per-month">Aggregating per Month</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-energyPerMonthFacet-99c30ced"></div>
+        </div>
+      </div>
+      <i>
+        NOTE:
+        <ul>
+          <li>"Electric - Grid" usage peaks in summer months.</li>
+          <li>"Fuel Oil (No. 2)" is lowest in July and August.</li>
+        </ul>
+      </i>
+
+      <h2 id="experiental">Experimental</h2>
+      <i>
+        NOTE: If performance seems to degrade after running this animation for a while, try refreshing the page.
+      </i>
+      <div class="row">
+        <div class="col-md-12">
+          <div style="display: flex; justify-content: space-between">
+            <div id="observablehq-viewof-cTimeTicks-496f0ae7"></div>
+            <div id="observablehq-dial-01c1236f"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-monthlyAggOsc-2ea1af55"></div>
+        </div>
+      </div>
+
+      <h1 id="performance-vs-targets">4. Performance vs Targets</h1>
+      <div>
+        <h2>The singular view for reviewing usage of each energy source since baseline and relative to targets</h2>
+        <p>By fitting trend lines since the July 2020 baseline, we illustrate in standalone charts how the most dominant building (and the only one for which we are not missing recent energy usage data across all energy sources) has reduced energy usage over time.</p>
+        <i>
+          KEY QUESTIONS:
+          <ul>
+            <li>Is July 2020 to present the most meaningful timeframe? We conducted additional EDA of 'Energy Projects' and design initiatives, finding these empty. Therefore, focussed on only the timeframe since baseline, rather than configuring other meaningful views.</li>
+            <li>Are the targets actually valid and current? The blanket 3% across all sources seems like it could have been a vestigial placeholder.</li>
+            <li>Why is data missing for the first few months post-baseline for fuel oil?</li>
+          </ul>
+          NOTE:
+          <ul>
+            <li>Ignored other buildings due to missing data and lack of impact relative to Charles Shipman Payson Building.</li>
+            <li>Ignored data from "PMA Electric, Fire Pump supply", focussing on "PMA Electric supply".</li>
+          </ul>
+        </i>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-cspb_elec-4a45052d"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-cspb_gas-4a45052d"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="observablehq-cspb_oil-4a45052d"></div>
+        </div>
+      </div>
+    </div>
+    
+    <p>
+      Credit: <a href="https://observablehq.com/@class/pma-backend@3916">PMA by class</a>
+    </p>
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- observable -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
+
+    <script type="module">
+      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+      import define from "https://api.observablehq.com/@class/pma-backend@3916.js?v=4";
+      new Runtime().module(define, name => {
+        if (name === "missingCost")
+          return new Inspector(document.querySelector(
+            "#observablehq-missingCost-3500b59f"
+          ));
+        if (name === "energyBoxes2")
+          return new Inspector(document.querySelector(
+            "#observablehq-energyBoxes2-3b2ab866"
+          ));
+        // if (name === "viewof year_month_scrubber")
+        //   return new Inspector(document.querySelector(
+        //     "#observablehq-viewof-year_month_scrubber-4a856b50"
+        //   ));
+        // if (name === "observation_count")
+        //   return new Inspector(document.querySelector(
+        //     "#observablehq-observation_count-9379dfd6"
+        //   ));
+        // if (name === "Purchase_over_time")
+        //   return new Inspector(document.querySelector(
+        //     "#observablehq-Purchase_over_time-1506509f"
+        //   ));
+        if (name === "kwhPareto")
+          return new Inspector(document.querySelector(
+            "#observablehq-kwhPareto-353e78d3"
+          ));
+        if (name === "energyPerMonthFacet")
+          return new Inspector(document.querySelector(
+            "#observablehq-energyPerMonthFacet-99c30ced"
+          ));
+        if (name === "scrubber")
+          return new Inspector(document.querySelector(
+            "#observablehq-scrubber-20aee92a"
+          ));
+        if (name === "costTrend")
+          return new Inspector(document.querySelector(
+            "#observablehq-costTrend-748a2a8d"
+          ));
+        if (name === "viewof cTimeTicks")
+         return new Inspector(document.querySelector(
+          "#observablehq-viewof-cTimeTicks-496f0ae7"
+        ));
+        if (name === "dial")
+          return new Inspector(document.querySelector(
+            "#observablehq-dial-01c1236f"
+          ));
+        if (name === "monthlyAggOsc")
+          return new Inspector(document.querySelector(
+            "#observablehq-monthlyAggOsc-2ea1af55"
+          ));
+        if (name === "cspb_elec")
+          return new Inspector(document.querySelector(
+            "#observablehq-cspb_elec-4a45052d"
+          ));
+        if (name === "cspb_gas")
+          return new Inspector(document.querySelector(
+            "#observablehq-cspb_gas-4a45052d"
+          ));
+        if (name === "cspb_oil")
+          return new Inspector(document.querySelector(
+            "#observablehq-cspb_oil-4a45052d"
+          ));
+        return [
+          // "Purchase_over_time",
+          // "countPerBuilding",
+          // "observation_count",
+          // "viewof obsv_count_table",
+          "monthlyAggOsc",
+        ].includes(name);
+      });
+    </script>
+  </body>
+</html>
