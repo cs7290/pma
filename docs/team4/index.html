@@ -1,113 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>PMA Energy Consumption</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Usage and Cost Analysis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        header h1 {
-            font-size: 24px;
-        }
-
-        section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            margin-top: 20px;
-        }
-
-        h2 {
-            color: #333;
-            font-size: 18px;
-        }
-
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        ol {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
         iframe {
             width: 100%;
-            height: 600px;
             border: none;
+            margin-top: 20px;
+        }
+        .story-outline h2 {
+            color: #333333; /* Dark Gray */
+        }
+        .story-outline .key-point {
+            color: #6A5ACD; /* Slate Blue */
+        }
+        .story-outline ul li {
+            color: #008080; /* Teal */
+        }
+        .sidebar {
+            height: 100vh;
+            overflow-y: auto;
+            background-color: gray;
+        }
+        .content-section {
+            margin-top: 20px;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
-
 <body>
-    
-    <header>
-        <h1>Story: PMA Energy Consumption</h1>
-    </header>
 
-    <section>
-        <h2>Introduction</h2>
-        <p>
-            This page presents an analysis of energy consumption data with a focus on trends and patterns observed over a period of time. The data provides valuable insights into how energy usage has evolved in different categories and buildings. The analysis is divided into several key observations:
-        </p>
-    </section>
+    <!-- Top bar -->
+    <nav class="navbar navbar-expand-lg" style="background-color: gray">
+        <span class="navbar-brand mb-0 h1 text-white">Energy Usage and Cost Analysis Project</span>
+    </nav>
 
-    <section>
-        <h2>Key Observations</h2>
-        <ol>
-            <li>
-                <p>
-                    A clear seasonal effect is evident in the data. Seasonal variations in energy consumption are a common phenomenon and can provide insights into factors such as weather and climate that influence energy usage.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Analyzing energy consumption trends grouped by building reveals that the Charles Shipman Payson Building is the dominant contributor to energy usage.
-                </p>
-            </li>
-            <li>
-                <p>
-                    Regarding the Charles Shipman Payson Building, it's noteworthy that a downward trend has been evident since 2020, with a significant decline occurring in 2017.
-                </p>
-            </li>
-        </ol>
-    </section>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-none d-md-block sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#" onclick="showSection('story-outline')">1. Story Outline</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" onclick="showSection('story')">2. Story</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
-    <section>
-        <h2>Data Visualization</h2>
-        <p>
-            The following interactive data visualization provides a more detailed view of the energy consumption trends discussed above. Explore the charts and graphs to gain a deeper understanding of the data.
-        </p>
-    </section>
+            <!-- Main Content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <!-- Story Outline -->
+                <div id="story-outline" class="story-outline content-section">
+                    <h1 class="mb-4">1. Story Outline</h1>
+                    <h2 class="mb-2">1.1 Explore Energy Usage</h2>
+                    <div class="mb-3">
+                        <strong class="key-point">Analysis of Energy Consumption Trends by Building</strong>
+                        <ul>
+                            <li>Charles Shipman Payson Building identified as the main contributor to energy usage.</li>
+                            <li>Notable downward trend in energy consumption since 2020 for the Charles Shipman Payson Building.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="key-point">Types of Energy Contributing to Usage Decrease</strong>
+                        <ul>
+                            <li>Electric grid and fuel oil showed a decline in 2021 and 2022 compared to 2020.</li>
+                            <li>Natural gas usage increased in 2021 but decreased in 2022 compared to 2020.</li>
+                        </ul>
+                    </div>
+                    <h2 class="mb-2">1.2 Explore Overall Energy Usage Cost</h2>
+                    <div class="mb-3">
+                        <strong class="key-point">Comparison of Overall Costs with Energy Consumption Trend</strong>
+                        <ul>
+                            <li>Despite reduced energy usage since 2020, overall costs increased in 2021 and 2022.</li>
+                        </ul>
+                    </div>
+                    <div class="mb-3">
+                        <strong class="key-point">Identifying Energy Types Responsible for Cost Increase</strong>
+                        <ul>
+                            <li>Electric type: Decrease in 2021, but a significant increase in 2022.</li>
+                            <li>Natural gas: Continuous cost increase in both 2021 and 2022.</li>
+                            <li>Fuel oil: Similar trend of rising costs over the past two years.</li>
+                        </ul>
+                    </div>
+                    <h2 class="mb-2">1.3 Reasons for Decline in Energy Usage vs. Increase in Costs</h2>
+                    <div class="mb-3">
+                        <strong class="key-point">Key Factor:</strong> The increase in unit cost attributed to inflation.
+                    </div>
+                </div>
 
-    
-    
-    <div>
-        <iframe width="100%" height="3099" frameborder="0"
-  src="https://observablehq.com/embed/1f9b2f46943bc5d5@748?cells=overall%2Cviewof+groupbyYear%2Cgraph1%2Cviewof+groupbytype%2Cgraph2%2Cviewof+groupbybuilding%2Cgraph3%2Cviewof+groupbyBuilding%2Cviewof+selectedYear%2Cgraph4%2Cviewof+groupbyType%2Cviewof+selectedYear2%2Cgraph5"></iframe>
+                <!-- Story -->
+                <div id="story" class="content-section hidden">
+                    <h1 class="mb-4">2. Story</h1>
+                    
+                    <!-- Section 2.1 -->
+        <div class="section mb-4">
+            <h2>2.1 Explore Energy Usage</h2>
+            <p>Analyzing energy consumption trends grouped by building reveals that the Charles Shipman Payson Building is the dominant contributor to energy usage. Regarding the Charles Shipman Payson Building, it's noteworthy that a downward trend has been evident since 2020.</p>
+            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=overall" height="611"></iframe>
+            <p>Since Charles Shipman Payson Building is the predominant building in usage, my next focus will be on understanding the types of energy contributing to the overall decrease in usage. The graph below illustrates that both the electric grid and fuel oil experienced a decline in 2021 and 2022 relative to 2020. Conversely, natural gas usage saw an increase in 2021 compared to 2020, but it also showed a decrease in 2022 when compared to 2020.</p>
+            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbybuilding4%2Cviewof+groupbytype4%2Coverall2" height="626"></iframe>
+        </div>
+
+        <!-- Section 2.2 -->
+        <div class="section mb-4">
+            <h2>2.2 Explore Overall Energy Usage Cost</h2>
+            <p>My next inquiry is whether the overall costs have decreased in comparison to 2020, similar to the trend observed in energy consumption. The answer, however, is negative. Despite a reduction in overall energy usage since 2020, the total costs actually increased in both 2021 and 2022 compared to 2020.</p>
+            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=overall3" height="611"></iframe>
+            <p>My next question is: which type of energy usage is responsible for this rise in costs? Examining the electric type, we observe a decrease in 2021, followed by a significant increase in 2022 relative to 2020. In the case of natural gas, the costs increased in both 2021 and 2022 compared to 2020. This trend of rising costs over the past two years is also evident in the fuel oil type.</p>
+            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbybuilding5%2Cviewof+groupbytype5%2Coverall4" height="627"></iframe>
+        </div>
+
+        <!-- Section 2.3 -->
+        <div class="section mb-4">
+            <h2>2.3 Why has energy usage declined while the overall energy costs have risen compared to 2020?</h2>
+            <p>The answer lies in the unit cost - it's due to inflation?!</p>
+            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbytype6%2Coverall5" height="568"></iframe>
+        </div>
+                </div>
+            </main>
+        </div>
     </div>
-    
-</body>
 
+    <!-- JavaScript to toggle visibility -->
+    <script>
+        function showSection(sectionId) {
+            document.getElementById('story-outline').classList.add('hidden');
+            document.getElementById('story').classList.add('hidden');
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        // Initially show Story Outline
+        showSection('story-outline');
+    </script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
 </html>
