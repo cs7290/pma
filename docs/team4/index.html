@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,28 +13,38 @@
             border: none;
             margin-top: 20px;
         }
+
         .story-outline h2 {
-            color: #333333; /* Dark Gray */
+            color: #333333;
+            /* Dark Gray */
         }
+
         .story-outline .key-point {
-            color: #6A5ACD; /* Slate Blue */
+            color: #6A5ACD;
+            /* Slate Blue */
         }
+
         .story-outline ul li {
-            color: #008080; /* Teal */
+            color: #008080;
+            /* Teal */
         }
+
         .sidebar {
             height: 100vh;
             overflow-y: auto;
             background-color: gray;
         }
+
         .content-section {
             margin-top: 20px;
         }
+
         .hidden {
             display: none;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Top bar -->
@@ -48,10 +59,15 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active text-white" href="#" onclick="showSection('story-outline')">1. Story Outline</a>
+                            <a class="nav-link active text-white" href="#" onclick="showSection('story-outline')">1.
+                                Story Outline</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#" onclick="showSection('story')">2. Story</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" onclick="showSection('future-work')">3. Future
+                                Work</a>
                         </li>
                     </ul>
                 </div>
@@ -67,7 +83,8 @@
                         <strong class="key-point">Analysis of Energy Consumption Trends by Building</strong>
                         <ul>
                             <li>Charles Shipman Payson Building identified as the main contributor to energy usage.</li>
-                            <li>Notable downward trend in energy consumption since 2020 for the Charles Shipman Payson Building.</li>
+                            <li>Notable downward trend in energy consumption since 2020 for the Charles Shipman Payson
+                                Building.</li>
                         </ul>
                     </div>
                     <div class="mb-3">
@@ -94,38 +111,86 @@
                     </div>
                     <h2 class="mb-2">1.3 Reasons for Decline in Energy Usage vs. Increase in Costs</h2>
                     <div class="mb-3">
-                        <strong class="key-point">Key Factor:</strong> The increase in unit cost attributed to inflation.
+                        <strong class="key-point">Key Factor:</strong> The increase in unit cost attributed to
+                        inflation.
                     </div>
                 </div>
 
                 <!-- Story -->
                 <div id="story" class="content-section hidden">
                     <h1 class="mb-4">2. Story</h1>
-                    
+
                     <!-- Section 2.1 -->
-        <div class="section mb-4">
-            <h2>2.1 Explore Energy Usage</h2>
-            <p>Analyzing energy consumption trends grouped by building reveals that the Charles Shipman Payson Building is the dominant contributor to energy usage. Regarding the Charles Shipman Payson Building, it's noteworthy that a downward trend has been evident since 2020.</p>
-            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=overall" height="611"></iframe>
-            <p>Since Charles Shipman Payson Building is the predominant building in usage, my next focus will be on understanding the types of energy contributing to the overall decrease in usage. The graph below illustrates that both the electric grid and fuel oil experienced a decline in 2021 and 2022 relative to 2020. Conversely, natural gas usage saw an increase in 2021 compared to 2020, but it also showed a decrease in 2022 when compared to 2020.</p>
-            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbybuilding4%2Cviewof+groupbytype4%2Coverall2" height="626"></iframe>
-        </div>
+                    <div class="section mb-4">
+                        <h2>2.1 Explore Energy Usage</h2>
+                        <p>Analyzing energy consumption trends grouped by building reveals that the Charles Shipman
+                            Payson Building is the dominant contributor to energy usage. Regarding the Charles Shipman
+                            Payson Building, it's noteworthy that a downward trend has been evident since 2020.</p>
+                        <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=overall"
+                            height="611"></iframe>
+                        <p>Since Charles Shipman Payson Building is the predominant building in usage, my next focus
+                            will be on understanding the types of energy contributing to the overall decrease in usage.
+                            The graph below illustrates that both the electric grid and fuel oil experienced a decline
+                            in 2021 and 2022 relative to 2020. Conversely, natural gas usage saw an increase in 2021
+                            compared to 2020, but it also showed a decrease in 2022 when compared to 2020.</p>
+                        <iframe
+                            src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbybuilding4%2Cviewof+groupbytype4%2Coverall2"
+                            height="626"></iframe>
+                    </div>
 
-        <!-- Section 2.2 -->
-        <div class="section mb-4">
-            <h2>2.2 Explore Overall Energy Usage Cost</h2>
-            <p>My next inquiry is whether the overall costs have decreased in comparison to 2020, similar to the trend observed in energy consumption. The answer, however, is negative. Despite a reduction in overall energy usage since 2020, the total costs actually increased in both 2021 and 2022 compared to 2020.</p>
-            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=overall3" height="611"></iframe>
-            <p>My next question is: which type of energy usage is responsible for this rise in costs? Examining the electric type, we observe a decrease in 2021, followed by a significant increase in 2022 relative to 2020. In the case of natural gas, the costs increased in both 2021 and 2022 compared to 2020. This trend of rising costs over the past two years is also evident in the fuel oil type.</p>
-            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbybuilding5%2Cviewof+groupbytype5%2Coverall4" height="627"></iframe>
-        </div>
+                    <!-- Section 2.2 -->
+                    <div class="section mb-4">
+                        <h2>2.2 Explore Overall Energy Usage Cost</h2>
+                        <p>My next inquiry is whether the overall costs have decreased in comparison to 2020, similar to
+                            the trend observed in energy consumption. The answer, however, is negative. Despite a
+                            reduction in overall energy usage since 2020, the total costs actually increased in both
+                            2021 and 2022 compared to 2020.</p>
+                        <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=overall3"
+                            height="611"></iframe>
+                        <p>My next question is: which type of energy usage is responsible for this rise in costs?
+                            Examining the electric type, we observe a decrease in 2021, followed by a significant
+                            increase in 2022 relative to 2020. In the case of natural gas, the costs increased in both
+                            2021 and 2022 compared to 2020. This trend of rising costs over the past two years is also
+                            evident in the fuel oil type.</p>
+                        <iframe
+                            src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbybuilding5%2Cviewof+groupbytype5%2Coverall4"
+                            height="627"></iframe>
+                    </div>
 
-        <!-- Section 2.3 -->
-        <div class="section mb-4">
-            <h2>2.3 Why has energy usage declined while the overall energy costs have risen compared to 2020?</h2>
-            <p>The answer lies in the unit cost - it's due to inflation?!</p>
-            <iframe src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbytype6%2Coverall5" height="568"></iframe>
-        </div>
+                    <!-- Section 2.3 -->
+                    <div class="section mb-4">
+                        <h2>2.3 Why has energy usage declined while the overall energy costs have risen compared to
+                            2020?</h2>
+                        <p>The answer lies in the unit cost - it's due to inflation?!</p>
+                        <iframe
+                            src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbytype6%2Coverall5"
+                            height="568"></iframe>
+                    </div>
+                </div>
+
+                <div id="future-work" class="content-section hidden">
+                    <h1 class="mb-4">3. Future Work</h1>
+
+                    <div class="section mb-4">
+                        <h2>3.1 Explore Weather Info</h2>
+                        <iframe width="100%" height="588" frameborder="0"
+                            src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+metrcis%2Cviewof+year%2Coverall6"></iframe>
+                    </div>
+
+                    <div class="section mb-4">
+                        <h2>3.2 Correlation Analysis ==> Env vs Usage</h2>
+                        <p>
+                            For buildings using electricity from the grid, there is a consistent positive correlation
+                            between air temperature and electricity consumption. As the air temperature rises, so does
+                            the electricity usage. This trend is particularly noticeable in the case of 142 Free Street,
+                            where the correlation coefficient is 0.54. In contrast, buildings using natural gas exhibit
+                            a negative correlation between air temperature and energy consumption. A notable example is
+                            the Portland Museum of Art, which shows a correlation coefficient of -0.4, indicating that
+                            higher temperatures lead to lower natural gas consumption.
+                        </p>
+                        <iframe width="100%" height="634" frameborder="0"
+                            src="https://observablehq.com/embed/c73984de6db59757?cells=viewof+groupbytype%2Cviewof+groupbybuilding%2Ccorrelation%2CscatterPlot"></iframe>
+                    </div>
                 </div>
             </main>
         </div>
@@ -136,6 +201,7 @@
         function showSection(sectionId) {
             document.getElementById('story-outline').classList.add('hidden');
             document.getElementById('story').classList.add('hidden');
+            document.getElementById('future-work').classList.add('hidden');
             document.getElementById(sectionId).classList.remove('hidden');
         }
 
@@ -148,4 +214,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
