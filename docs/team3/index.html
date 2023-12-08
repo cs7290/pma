@@ -81,12 +81,17 @@
           <div id="observablehq-brush-fa0a07bf"></div>
         </div>
       </div>
+      <p>
+        If you are really adventurous, here are some more detailed controls for the exploratory plot (see <a href="https://observablehq.com/@class/roux-institute-cs7250-class-presentation-for-the-pma">latest verion of the backing notebook</a> for the full complement of options):
+      </p>
+      <div id="observablehq-viewof-mode-3dcfeb13"></div>
+      <div id="observablehq-viewof-smoothPoints-82ea1ed3"></div>
     </div>
     <br/><br/>
     <div class="row">
       <div class="col-md-12 text-center">
         <p>
-          Credit: <a href="https://observablehq.com/@class/roux-institute-cs7250-class-presentation-for-the-pma@2364">Roux Institute CS7250 Class Presentation for the PMA by class</a>
+          Credit: <a href="https://observablehq.com/@class/roux-institute-cs7250-class-presentation-for-the-pma@2545">Roux Institute CS7250 Class Presentation for the PMA by class</a>
         </p>
       </div>
     </div>
@@ -98,64 +103,73 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@observablehq/inspector@5/dist/inspector.css">
 
     <script type="module">
-      import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
-      import define from "https://api.observablehq.com/@class/roux-institute-cs7250-class-presentation-for-the-pma@2532.js?v=4";
-      new Runtime().module(define, name => {
-        if (name === "kwhPareto")
-          return new Inspector(document.querySelector(
-            "#observablehq-kwhPareto-b69bda10"
-          ));
-        if (name === "energy")
-          return new Inspector(document.querySelector(
-            "#observablehq-energy-8bc9d5f7"
-          ));
-        if (name === "viewof selectedBuildings")
-          return new Inspector(document.querySelector(
-            "#observablehq-viewof-selectedBuildings-5e5a5ca9"
-          ));
-        if (name === "viewof selectedTypes")
-          return new Inspector(document.querySelector(
-            "#observablehq-viewof-selectedTypes-5f49b1ff"
-          ));
-        if (name === "viewof selectedUnits")
-          return new Inspector(document.querySelector(
-            "#observablehq-viewof-selectedUnits-37676c4d"
-          ));
-        if (name === "baseline")
-          return new Inspector(document.querySelector(
-            "#observablehq-baseline-43e6f5cb"
-          ));
-        if (name === "brushLegend")
-          return new Inspector(document.querySelector(
-            "#observablehq-brushLegend-2f19e1a1"
-          ));
-        if (name === "brush")
-          return new Inspector(document.querySelector(
-            "#observablehq-brush-fa0a07bf"
-          ));
-        return [
-          "animateBtn",
-          "baseline",
-          "brush",
-          "energy",
-          "focusData",
-          "focusX",
-          "focusY",
-          "getResampleOptions",
-          "kwhPareto",
-          "pctPerBuilding",
-          "resampleOptions",
-          "resetBtn",
-          "selectAllBtn",
-          "selectedBuildingData",
-          "simplifiedTrend",
-          "totalDailyEnergy",
-          "totalEnergy",
-          "totalEnergyPerBuilding",
-          "valueField",
-          "viewof selectedTypes",
-        ].includes(name);
-      });
+import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@5/dist/runtime.js";
+import define from "https://api.observablehq.com/@class/roux-institute-cs7250-class-presentation-for-the-pma@2545.js?v=4";
+new Runtime().module(define, name => {
+  if (name === "kwhPareto")
+    return new Inspector(document.querySelector(
+      "#observablehq-kwhPareto-b69bda10"
+    ));
+  if (name === "energy")
+    return new Inspector(document.querySelector(
+      "#observablehq-energy-8bc9d5f7"
+    ));
+  if (name === "viewof selectedBuildings")
+    return new Inspector(document.querySelector(
+      "#observablehq-viewof-selectedBuildings-5e5a5ca9"
+    ));
+  if (name === "viewof selectedTypes")
+    return new Inspector(document.querySelector(
+      "#observablehq-viewof-selectedTypes-5f49b1ff"
+    ));
+  if (name === "viewof selectedUnits")
+    return new Inspector(document.querySelector(
+      "#observablehq-viewof-selectedUnits-37676c4d"
+    ));
+  if (name === "baseline")
+    return new Inspector(document.querySelector(
+      "#observablehq-baseline-43e6f5cb"
+    ));
+  if (name === "brushLegend")
+    return new Inspector(document.querySelector(
+      "#observablehq-brushLegend-2f19e1a1"
+    ));
+  if (name === "brush")
+    return new Inspector(document.querySelector(
+      "#observablehq-brush-fa0a07bf"
+    ));
+  if (name === "viewof mode")
+    return new Inspector(document.querySelector(
+      "#observablehq-viewof-mode-3dcfeb13"
+    ));
+  if (name === "viewof smoothPoints")
+    return new Inspector(document.querySelector(
+      "#observablehq-viewof-smoothPoints-82ea1ed3"
+    ));
+  return [
+    "animateBtn",
+    "baseline",
+    "brush",
+    "energy",
+    "focusData",
+    "focusX",
+    "focusY",
+    "getResampleOptions",
+    "kwhPareto",
+    "pctPerBuilding",
+    "resampleOptions",
+    "resetBtn",
+    "selectAllBtn",
+    "selectedBuildingData",
+    "simplifiedTrend",
+    "totalDailyEnergy",
+    "totalEnergy",
+    "totalEnergyPerBuilding",
+    "valueField",
+    "viewof selectedTypes",
+    "viewof smoothPoints",
+  ].includes(name);
+});
     </script>
   </body>
 </html>
